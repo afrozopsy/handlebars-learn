@@ -1,0 +1,59 @@
+
+{{!-- partials --}}
+{{> header}}
+
+{{!-- expressions --}}
+<p>{{name}}</p>
+
+{{!-- if else --}}
+<p>
+  Learn Handlebars:
+  {{#if isUpperCase}}
+    {{makeUpperCase name}}
+    {{else}}
+    {{makeLowerCase name}}
+  {{/if}}
+</p>
+
+{{!-- each helper --}}
+
+<p>
+  1D List:
+</p>
+{{!-- loop through 1D array --}}
+<ul>
+  {{#each listData1D}}
+    <li>
+      {{.}}
+    </li>
+  {{/each}}
+</ul>
+
+<p>
+  2D List:
+</p>
+{{!-- loop through 2D array --}}
+<ul>
+  {{#each listData2D as |xValue xKey|}}
+    {{#each xValue as |yValue yKey|}}
+      <li>
+        {{yKey}}: {{yValue}}
+      </li>
+    {{/each}}
+    {{value}}
+  {{/each}}
+</ul>
+
+{{!-- expression --}}
+{{safe 'kkk'}}
+
+{{!-- block --}}
+{{#safe 'kkkr'}}
+{{/safe}}
+
+{{!-- block with options --}}
+{{#opt}}
+  {{value}}
+{{/opt}}
+
+{{> footer}}
